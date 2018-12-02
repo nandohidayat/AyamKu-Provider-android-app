@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.nandohidayat.app.wordlistsqlwithcontentprovider;
+package com.nandohidayat.app.ayamkuprovider;
 
 import android.net.Uri;
 import android.provider.BaseColumns;
@@ -34,7 +34,7 @@ public final class Contract {
 
 
     public static final String AUTHORITY =
-            "com.nandohidayat.app.wordlistsqlwithcontentprovider.provider";
+            "com.nandohidayat.app.ayamkuprovider.provider";
 
     // Only one public table.
     public static final String CONTENT_PATH = "words";
@@ -75,7 +75,10 @@ public final class Contract {
 
         // Column names
         public static final String KEY_ID = "_id";
-        public static final String KEY_WORD = "word";
+        public static final String KEY_IMAGE = "image";
+        public static final String KEY_NAME = "name";
+        public static final String KEY_DESC = "desc";
+        public static final String KEY_PRICE = "price";
     }
 
 }

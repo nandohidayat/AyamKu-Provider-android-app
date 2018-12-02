@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.nandohidayat.app.wordlistsqlwithcontentprovider;
+package com.nandohidayat.app.ayamkuprovider;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
@@ -23,13 +23,13 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.util.Log;
 
-import static com.nandohidayat.app.wordlistsqlwithcontentprovider.Contract.ALL_ITEMS;
-import static com.nandohidayat.app.wordlistsqlwithcontentprovider.Contract.AUTHORITY;
-import static com.nandohidayat.app.wordlistsqlwithcontentprovider.Contract.CONTENT_PATH;
-import static com.nandohidayat.app.wordlistsqlwithcontentprovider.Contract.CONTENT_URI;
-import static com.nandohidayat.app.wordlistsqlwithcontentprovider.Contract.COUNT;
-import static com.nandohidayat.app.wordlistsqlwithcontentprovider.Contract.MULTIPLE_RECORDS_MIME_TYPE;
-import static com.nandohidayat.app.wordlistsqlwithcontentprovider.Contract.SINGLE_RECORD_MIME_TYPE;
+import static com.nandohidayat.app.ayamkuprovider.Contract.ALL_ITEMS;
+import static com.nandohidayat.app.ayamkuprovider.Contract.AUTHORITY;
+import static com.nandohidayat.app.ayamkuprovider.Contract.CONTENT_PATH;
+import static com.nandohidayat.app.ayamkuprovider.Contract.CONTENT_URI;
+import static com.nandohidayat.app.ayamkuprovider.Contract.COUNT;
+import static com.nandohidayat.app.ayamkuprovider.Contract.MULTIPLE_RECORDS_MIME_TYPE;
+import static com.nandohidayat.app.ayamkuprovider.Contract.SINGLE_RECORD_MIME_TYPE;
 import static java.lang.Integer.parseInt;
 
 /**

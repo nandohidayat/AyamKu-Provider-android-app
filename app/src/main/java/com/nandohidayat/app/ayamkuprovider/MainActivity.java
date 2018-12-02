@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.nandohidayat.app.wordlistsqlwithcontentprovider;
+package com.nandohidayat.app.ayamkuprovider;
 
 import android.content.ContentValues;
 import android.content.Intent;
@@ -26,9 +26,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
 
-import static com.nandohidayat.app.wordlistsqlwithcontentprovider.Contract.CONTENT_URI;
-import static com.nandohidayat.app.wordlistsqlwithcontentprovider.Contract.WordList.KEY_ID;
-import static com.nandohidayat.app.wordlistsqlwithcontentprovider.Contract.WordList.KEY_WORD;
+import static com.nandohidayat.app.ayamkuprovider.Contract.CONTENT_URI;
+import static com.nandohidayat.app.ayamkuprovider.Contract.WordList.KEY_ID;
+import static com.nandohidayat.app.ayamkuprovider.Contract.WordList.KEY_WORD;
 
 /**
  * Implements a RecyclerView that displays a list of words from a SQL database.

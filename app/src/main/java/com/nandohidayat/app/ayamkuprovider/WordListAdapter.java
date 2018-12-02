@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.nandohidayat.app.wordlistsqlwithcontentprovider;
+package com.nandohidayat.app.ayamkuprovider;
 
 import android.app.Activity;
 import android.content.Context;
@@ -29,8 +29,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import static com.nandohidayat.app.wordlistsqlwithcontentprovider.Contract.CONTENT_PATH;
-import static com.nandohidayat.app.wordlistsqlwithcontentprovider.Contract.CONTENT_URI;
+import static com.nandohidayat.app.ayamkuprovider.Contract.CONTENT_PATH;
+import static com.nandohidayat.app.ayamkuprovider.Contract.CONTENT_URI;
 
 /**
  * Simple Adapter for a RecyclerView with click handler for each item in the ViewHolder.
@@ -44,7 +44,7 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
 
         public WordViewHolder(View itemView) {
             super(itemView);
-            wordItemView = (TextView) itemView.findViewById(com.nandohidayat.app.wordlistsqlwithcontentprovider.R.id.word);
+            wordItemView = (TextView) itemView.findViewById(com.nandohidayat.app.ayamkuprovider.R.id.word);
             delete_button = (Button)itemView.findViewById(R.id.delete_button);
             edit_button = (Button)itemView.findViewById(R.id.edit_button);
         }

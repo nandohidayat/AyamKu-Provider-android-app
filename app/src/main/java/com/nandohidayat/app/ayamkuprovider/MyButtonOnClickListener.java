@@ -14,32 +14,25 @@
  * limitations under the License.
  */
 
-package com.nandohidayat.app.wordlistsqlwithcontentprovider;
+package com.nandohidayat.app.ayamkuprovider;
 
+import android.view.View;
 
 /**
- * Data model for one word list item.
+ * Instantiated for the Edit and Delete buttons in WordListAdapter.
  */
-public class WordItem {
+public class MyButtonOnClickListener implements View.OnClickListener {
+    private static final String TAG = View.OnClickListener.class.getSimpleName();
 
-    private int mId;
-    private String mWord;
+    int id;
+    String word;
 
-    public WordItem() {}
-
-    public int getId() {
-        return this.mId;
+    public MyButtonOnClickListener(int id, String word) {
+        this.id = id;
+        this.word = word;
     }
 
-    public String getWord() {
-        return this.mWord;
-    }
-
-    public void setId(int id) {
-        this.mId = id;
-    }
-
-    public void setWord(String word) {
-        this.mWord = word;
+    public void onClick(View v) {
+        // Implemented in WordListAdapter
     }
 }
