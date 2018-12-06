@@ -93,10 +93,10 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
                         queryUri), null, null, null, sortOrder);
         if (cursor != null) {
             if (cursor.moveToPosition(position)) {
-                int indexWord = cursor.getColumnIndex(Contract.WordList.KEY_NAME);
+                int indexWord = cursor.getColumnIndex(Contract.AyamList.KEY_NAME);
                 word = cursor.getString(indexWord);
                 holder.wordItemView.setText(word);
-                int indexId = cursor.getColumnIndex(Contract.WordList.KEY_ID);
+                int indexId = cursor.getColumnIndex(Contract.AyamList.KEY_ID);
                 id = cursor.getInt(indexId);
             } else {
                 holder.wordItemView.setText(R.string.error_no_word);

@@ -27,8 +27,8 @@ import android.view.View;
 import android.widget.Toast;
 
 import static com.nandohidayat.app.ayamkuprovider.Contract.CONTENT_URI;
-import static com.nandohidayat.app.ayamkuprovider.Contract.WordList.KEY_ID;
-import static com.nandohidayat.app.ayamkuprovider.Contract.WordList.KEY_NAME;
+import static com.nandohidayat.app.ayamkuprovider.Contract.AyamList.KEY_ID;
+import static com.nandohidayat.app.ayamkuprovider.Contract.AyamList.KEY_NAME;
 
 /**
  * Implements a RecyclerView that displays a list of words from a SQL database.

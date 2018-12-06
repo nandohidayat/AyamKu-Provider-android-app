@@ -37,7 +37,7 @@ public final class Contract {
             "com.nandohidayat.app.ayamkuprovider.provider";
 
     // Only one public table.
-    public static final String CONTENT_PATH = "words";
+    public static final String CONTENT_PATH = "ayams";
 
     // Content URI for this table. Returns all items.
     public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/" + CONTENT_PATH);
@@ -47,9 +47,9 @@ public final class Contract {
             Uri.parse("content://" + AUTHORITY + "/" + CONTENT_PATH + "/" + COUNT);
 
     static final String SINGLE_RECORD_MIME_TYPE =
-            "vnd.android.cursor.item/vnd.com.app.provider.words";
+            "vnd.android.cursor.item/vnd.com.app.provider.ayams";
     static final String MULTIPLE_RECORDS_MIME_TYPE =
-            "vnd.android.cursor.item/vnd.com.app.provider.words";
+            "vnd.android.cursor.item/vnd.com.app.provider.ayams";
 
     /*
      * Constants for the database are moved out of WordListOpenHelper into the contract.
@@ -59,7 +59,7 @@ public final class Contract {
      */
 
 
-    public static final String DATABASE_NAME = "wordlist";
+    public static final String DATABASE_NAME = "ayamlist";
 
     /**
      *  Inner class that defines the table contents.
@@ -69,9 +69,9 @@ public final class Contract {
      * have. It's not required, but this can help your database work harmoniously with the
      * Android framework.
      */
-    public static abstract class WordList implements BaseColumns {
+    public static abstract class AyamList implements BaseColumns {
 
-        public static final String WORD_LIST_TABLE = "word_entries";
+        public static final String AYAM_LIST_TABLE = "ayam_entries";
 
         // Column names
         public static final String KEY_ID = "_id";

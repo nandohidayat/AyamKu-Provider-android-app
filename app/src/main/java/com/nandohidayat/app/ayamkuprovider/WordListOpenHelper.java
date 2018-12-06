@@ -27,9 +27,9 @@ import android.util.Log;
 
 import static com.nandohidayat.app.ayamkuprovider.Contract.ALL_ITEMS;
 import static com.nandohidayat.app.ayamkuprovider.Contract.DATABASE_NAME;
-import static com.nandohidayat.app.ayamkuprovider.Contract.WordList.KEY_ID;
-import static com.nandohidayat.app.ayamkuprovider.Contract.WordList.KEY_NAME;
-import static com.nandohidayat.app.ayamkuprovider.Contract.WordList.WORD_LIST_TABLE;
+import static com.nandohidayat.app.ayamkuprovider.Contract.AyamList.KEY_ID;
+import static com.nandohidayat.app.ayamkuprovider.Contract.AyamList.KEY_NAME;
+import static com.nandohidayat.app.ayamkuprovider.Contract.AyamList.AYAM_LIST_TABLE;
 
 /**
  * Open helper for the list of words database.
@@ -47,7 +47,7 @@ public class WordListOpenHelper extends SQLiteOpenHelper {
 
     // Build the SQL query that creates the table.
     private static final String WORD_LIST_TABLE_CREATE =
-            "CREATE TABLE " + WORD_LIST_TABLE + " (" +
+            "CREATE TABLE " + AYAM_LIST_TABLE + " (" +
                     KEY_ID + " INTEGER PRIMARY KEY, " + // will auto-increment if no value passed
                     KEY_NAME + " TEXT );";
 
@@ -80,7 +80,7 @@ public class WordListOpenHelper extends SQLiteOpenHelper {
         for (int i=0; i < words.length;i++) {
             // Put column/value pairs into the container, overriding existing values.
             values.put(KEY_NAME, words[i]);
-            db.insert(WORD_LIST_TABLE, null, values);
+            db.insert(AYAM_LIST_TABLE, null, values);
         }
     }
 
@@ -98,7 +98,7 @@ public class WordListOpenHelper extends SQLiteOpenHelper {
         Log.w(WordListOpenHelper.class.getName(),
                 "Upgrading database from version " + oldVersion + " to "
                         + newVersion + ", which will destroy all old data");
-        db.execSQL("DROP TABLE IF EXISTS " + WORD_LIST_TABLE);
+        db.execSQL("DROP TABLE IF EXISTS " + AYAM_LIST_TABLE);
         onCreate(db);
     }
 
@@ -106,16 +106,16 @@ public class WordListOpenHelper extends SQLiteOpenHelper {
      * Queries the database for an entry at a given position.
      *
      * @param position The Nth row in the table.
-     * @return a WordItem with the requested database entry.
+     * @return a AyamItem with the requested database entry.
      */
     public Cursor query(int position) {
         String query;
         if (position != ALL_ITEMS) {
             position++; // Because database starts counting at 1.
-            query = "SELECT " + KEY_ID + "," + KEY_NAME + " FROM " + WORD_LIST_TABLE +
+            query = "SELECT " + KEY_ID + "," + KEY_NAME + " FROM " + AYAM_LIST_TABLE +
                     " WHERE " + KEY_ID + "=" + position + ";";
         } else {
-            query = "SELECT  * FROM " + WORD_LIST_TABLE + " ORDER BY " + KEY_NAME + " ASC ";
+            query = "SELECT  * FROM " + AYAM_LIST_TABLE + " ORDER BY " + KEY_NAME + " ASC ";
         }
 
         Cursor cursor = null;
@@ -134,7 +134,7 @@ public class WordListOpenHelper extends SQLiteOpenHelper {
     /**
      * Gets the number of rows in the word list table.
      *
-     * @return The number of entries in WORD_LIST_TABLE.
+     * @return The number of entries in AYAM_LIST_TABLE.
      */
     public Cursor count() {
         MatrixCursor cursor = new MatrixCursor(new String[]{Contract.CONTENT_PATH});
@@ -144,7 +144,7 @@ public class WordListOpenHelper extends SQLiteOpenHelper {
             }
             // queryNumEntries returns a long, but we need to pass up an int.
             // With the small number of entries, no worries about losing precision.
-            int count = (int) DatabaseUtils.queryNumEntries(mReadableDB, WORD_LIST_TABLE);
+            int count = (int) DatabaseUtils.queryNumEntries(mReadableDB, AYAM_LIST_TABLE);
             cursor.addRow(new Object[]{count});
         } catch (Exception e) {
             Log.d(TAG, "COUNT EXCEPTION " + e);
@@ -164,7 +164,7 @@ public class WordListOpenHelper extends SQLiteOpenHelper {
             if (mWritableDB == null) {
                 mWritableDB = getWritableDatabase();
             }
-            added = mWritableDB.insert(WORD_LIST_TABLE, null, values);
+            added = mWritableDB.insert(AYAM_LIST_TABLE, null, values);
         } catch (Exception e) {
             Log.d(TAG, "INSERT EXCEPTION " + e);
         }
@@ -186,7 +186,7 @@ public class WordListOpenHelper extends SQLiteOpenHelper {
             if (mWritableDB == null) {
                 mWritableDB = getWritableDatabase();
             }
-            updated = mWritableDB.update(WORD_LIST_TABLE, //table to change
+            updated = mWritableDB.update(AYAM_LIST_TABLE, //table to change
                     values, // new values to insert
                     KEY_ID + " = ?", // selection criteria for row (in this case, the _id column)
                     new String[]{String.valueOf(id)}); //selection args; the actual value of the id
@@ -209,7 +209,7 @@ public class WordListOpenHelper extends SQLiteOpenHelper {
             if (mWritableDB == null) {
                 mWritableDB = this.getWritableDatabase();
             }
-            deleted = mWritableDB.delete(WORD_LIST_TABLE,
+            deleted = mWritableDB.delete(AYAM_LIST_TABLE,
                     KEY_ID + " = ? ", new String[]{String.valueOf(id)});
         } catch (Exception e) {
             Log.d (TAG, "DELETE EXCEPTION " + e);
