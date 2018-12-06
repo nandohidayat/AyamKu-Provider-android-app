@@ -28,7 +28,7 @@ import android.widget.Toast;
 
 import static com.nandohidayat.app.ayamkuprovider.Contract.CONTENT_URI;
 import static com.nandohidayat.app.ayamkuprovider.Contract.WordList.KEY_ID;
-import static com.nandohidayat.app.ayamkuprovider.Contract.WordList.KEY_WORD;
+import static com.nandohidayat.app.ayamkuprovider.Contract.WordList.KEY_NAME;
 
 /**
  * Implements a RecyclerView that displays a list of words from a SQL database.
@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
                 // Update the database.
                 if (word.length() != 0) {
                     ContentValues values = new ContentValues();
-                    values.put(KEY_WORD, word);
+                    values.put(KEY_NAME, word);
                     int id = data.getIntExtra(WordListAdapter.EXTRA_ID, -99);
 
                     if (id == WORD_ADD) {

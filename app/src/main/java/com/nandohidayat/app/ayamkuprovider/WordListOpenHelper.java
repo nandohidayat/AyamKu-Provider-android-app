@@ -28,7 +28,7 @@ import android.util.Log;
 import static com.nandohidayat.app.ayamkuprovider.Contract.ALL_ITEMS;
 import static com.nandohidayat.app.ayamkuprovider.Contract.DATABASE_NAME;
 import static com.nandohidayat.app.ayamkuprovider.Contract.WordList.KEY_ID;
-import static com.nandohidayat.app.ayamkuprovider.Contract.WordList.KEY_WORD;
+import static com.nandohidayat.app.ayamkuprovider.Contract.WordList.KEY_NAME;
 import static com.nandohidayat.app.ayamkuprovider.Contract.WordList.WORD_LIST_TABLE;
 
 /**
@@ -49,7 +49,7 @@ public class WordListOpenHelper extends SQLiteOpenHelper {
     private static final String WORD_LIST_TABLE_CREATE =
             "CREATE TABLE " + WORD_LIST_TABLE + " (" +
                     KEY_ID + " INTEGER PRIMARY KEY, " + // will auto-increment if no value passed
-                    KEY_WORD + " TEXT );";
+                    KEY_NAME + " TEXT );";
 
 
     public WordListOpenHelper(Context context) {
@@ -79,7 +79,7 @@ public class WordListOpenHelper extends SQLiteOpenHelper {
 
         for (int i=0; i < words.length;i++) {
             // Put column/value pairs into the container, overriding existing values.
-            values.put(KEY_WORD, words[i]);
+            values.put(KEY_NAME, words[i]);
             db.insert(WORD_LIST_TABLE, null, values);
         }
     }
@@ -112,10 +112,10 @@ public class WordListOpenHelper extends SQLiteOpenHelper {
         String query;
         if (position != ALL_ITEMS) {
             position++; // Because database starts counting at 1.
-            query = "SELECT " + KEY_ID + "," + KEY_WORD + " FROM " + WORD_LIST_TABLE +
+            query = "SELECT " + KEY_ID + "," + KEY_NAME + " FROM " + WORD_LIST_TABLE +
                     " WHERE " + KEY_ID + "=" + position + ";";
         } else {
-            query = "SELECT  * FROM " + WORD_LIST_TABLE + " ORDER BY " + KEY_WORD + " ASC ";
+            query = "SELECT  * FROM " + WORD_LIST_TABLE + " ORDER BY " + KEY_NAME + " ASC ";
         }
 
         Cursor cursor = null;
@@ -182,7 +182,7 @@ public class WordListOpenHelper extends SQLiteOpenHelper {
         int updated = 0;
         try {
             ContentValues values = new ContentValues();
-            values.put(KEY_WORD, word);
+            values.put(KEY_NAME, word);
             if (mWritableDB == null) {
                 mWritableDB = getWritableDatabase();
             }
