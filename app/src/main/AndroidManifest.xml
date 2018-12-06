@@ -33,10 +33,10 @@ limitations under the License. -->
             </intent-filter>
 
         </activity>
-        <activity android:name="com.nandohidayat.app.ayamkuprovider.EditWordActivity">
+        <activity android:name="com.nandohidayat.app.ayamkuprovider.EditAyamActivity">
         </activity>
         <provider
-            android:name="com.nandohidayat.app.ayamkuprovider.WordListContentProvider"
+            android:name="com.nandohidayat.app.ayamkuprovider.AyamListContentProvider"
             android:authorities="com.nandohidayat.app.ayamkuprovider.provider"
             android:exported="true">
         </provider>

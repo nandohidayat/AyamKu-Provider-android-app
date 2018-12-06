@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     public static final int WORD_ADD = -1;
 
     private RecyclerView mRecyclerView;
-    private WordListAdapter mAdapter;
+    private AyamListAdapter mAdapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         // Create recycler view.
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview);
         // Create an adapter and supply the data to be displayed.
-        mAdapter = new WordListAdapter(this);
+        mAdapter = new AyamListAdapter(this);
         // Connect the adapter with the recycler view.
         mRecyclerView.setAdapter(mAdapter);
         // Give the recycler view a default layout manager.
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getBaseContext(), EditWordActivity.class);
+                Intent intent = new Intent(getBaseContext(), EditAyamActivity.class);
                 startActivityForResult(intent, WORD_EDIT);
             }
         });
@@ -75,13 +75,13 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == WORD_EDIT) {
             if (resultCode == RESULT_OK) {
-                String word = data.getStringExtra(EditWordActivity.EXTRA_REPLY);
+                String word = data.getStringExtra(EditAyamActivity.EXTRA_REPLY);
 
                 // Update the database.
                 if (word.length() != 0) {
                     ContentValues values = new ContentValues();
                     values.put(KEY_NAME, word);
-                    int id = data.getIntExtra(WordListAdapter.EXTRA_ID, -99);
+                    int id = data.getIntExtra(AyamListAdapter.EXTRA_ID, -99);
 
                     if (id == WORD_ADD) {
                         getContentResolver().insert(CONTENT_URI, values);

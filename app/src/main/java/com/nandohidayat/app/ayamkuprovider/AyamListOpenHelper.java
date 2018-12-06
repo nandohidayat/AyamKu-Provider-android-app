@@ -34,9 +34,9 @@ import static com.nandohidayat.app.ayamkuprovider.Contract.AyamList.AYAM_LIST_TA
 /**
  * Open helper for the list of words database.
  */
-public class WordListOpenHelper extends SQLiteOpenHelper {
+public class AyamListOpenHelper extends SQLiteOpenHelper {
 
-    private static final String TAG = WordListOpenHelper.class.getSimpleName();
+    private static final String TAG = AyamListOpenHelper.class.getSimpleName();
 
     // Has to be 1 first time or app will crash.
     private static final int DATABASE_VERSION = 1;
@@ -52,7 +52,7 @@ public class WordListOpenHelper extends SQLiteOpenHelper {
                     KEY_NAME + " TEXT );";
 
 
-    public WordListOpenHelper(Context context) {
+    public AyamListOpenHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
@@ -95,7 +95,7 @@ public class WordListOpenHelper extends SQLiteOpenHelper {
      */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        Log.w(WordListOpenHelper.class.getName(),
+        Log.w(AyamListOpenHelper.class.getName(),
                 "Upgrading database from version " + oldVersion + " to "
                         + newVersion + ", which will destroy all old data");
         db.execSQL("DROP TABLE IF EXISTS " + AYAM_LIST_TABLE);

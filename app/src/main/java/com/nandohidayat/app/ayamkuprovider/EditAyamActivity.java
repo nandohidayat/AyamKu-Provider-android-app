@@ -26,7 +26,7 @@ import android.widget.EditText;
 /**
  * Activity for entering a new word or editing an existing one.
  */
-public class EditWordActivity extends AppCompatActivity {
+public class EditAyamActivity extends AppCompatActivity {
 
     private static final int NO_ID = -99;
     private static final String NO_WORD = "";
@@ -36,7 +36,7 @@ public class EditWordActivity extends AppCompatActivity {
     // Unique tag for the intent reply.
     public static final String EXTRA_REPLY = "com.app.android.ayamkuprovider.REPLY";
 
-    private static final String TAG = EditWordActivity.class.getSimpleName();
+    private static final String TAG = EditAyamActivity.class.getSimpleName();
 
     int mId = MainActivity.WORD_ADD;
 
@@ -52,8 +52,8 @@ public class EditWordActivity extends AppCompatActivity {
 
         // If we are passed content, fill it in for the user to edit.
         if (extras != null) {
-            int id = extras.getInt(WordListAdapter.EXTRA_ID, NO_ID);
-            String word = extras.getString(WordListAdapter.EXTRA_WORD, NO_WORD);
+            int id = extras.getInt(AyamListAdapter.EXTRA_ID, NO_ID);
+            String word = extras.getString(AyamListAdapter.EXTRA_WORD, NO_WORD);
             if (id != NO_ID && !word.equals(NO_WORD)) {
                 mId = id;
                 mEditWordView.setText(word);
@@ -71,7 +71,7 @@ public class EditWordActivity extends AppCompatActivity {
 
         Intent replyIntent = new Intent();
         replyIntent.putExtra(EXTRA_REPLY, word);
-        replyIntent.putExtra(WordListAdapter.EXTRA_ID, mId);
+        replyIntent.putExtra(AyamListAdapter.EXTRA_ID, mId);
         setResult(RESULT_OK, replyIntent);
         finish();
     }

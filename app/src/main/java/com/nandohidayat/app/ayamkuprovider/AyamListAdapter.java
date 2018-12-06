@@ -35,7 +35,7 @@ import static com.nandohidayat.app.ayamkuprovider.Contract.CONTENT_URI;
 /**
  * Simple Adapter for a RecyclerView with click handler for each item in the ViewHolder.
  */
-public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordViewHolder> {
+public class AyamListAdapter extends RecyclerView.Adapter<AyamListAdapter.WordViewHolder> {
 
     class WordViewHolder extends RecyclerView.ViewHolder {
         public final TextView wordItemView;
@@ -54,7 +54,7 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
     public static final String EXTRA_WORD = "WORD";
     public static final String EXTRA_POSITION = "POSITION";
 
-    private static final String TAG = WordListAdapter.class.getSimpleName();
+    private static final String TAG = AyamListAdapter.class.getSimpleName();
 
     // Query parameters are very similar to SQL queries.
     private String queryUri = CONTENT_URI.toString();
@@ -66,7 +66,7 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
     private final LayoutInflater mInflater;
     private Context mContext;
 
-    public WordListAdapter(Context context) {
+    public AyamListAdapter(Context context) {
         mInflater = LayoutInflater.from(context);
         this.mContext = context;
     }
@@ -129,7 +129,7 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext, EditWordActivity.class);
+                Intent intent = new Intent(mContext, EditAyamActivity.class);
 
                 intent.putExtra(EXTRA_ID, id);
                 intent.putExtra(EXTRA_POSITION, h.getAdapterPosition());

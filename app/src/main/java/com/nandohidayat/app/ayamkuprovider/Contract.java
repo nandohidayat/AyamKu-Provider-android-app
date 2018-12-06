@@ -52,7 +52,7 @@ public final class Contract {
             "vnd.android.cursor.item/vnd.com.app.provider.ayams";
 
     /*
-     * Constants for the database are moved out of WordListOpenHelper into the contract.
+     * Constants for the database are moved out of AyamListOpenHelper into the contract.
      * A common way to organize a contract class is to put definitions that are global to your
      * database in the root level of the class. Then create an inner class for each table
      * that enumerates its columns.

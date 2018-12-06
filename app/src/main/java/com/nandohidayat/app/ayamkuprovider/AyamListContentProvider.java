@@ -44,15 +44,15 @@ import static java.lang.Integer.parseInt;
  * Also, document this in the Contract.
  *
  */
-public class WordListContentProvider  extends ContentProvider {
+public class AyamListContentProvider extends ContentProvider {
 
-    private static final String TAG = WordListContentProvider.class.getSimpleName();
+    private static final String TAG = AyamListContentProvider.class.getSimpleName();
 
     private static UriMatcher sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
 
     // Moved all the interaction with the OpenHelper from MainActivity into the ContentProvider.
     // The MainActivity does not know anything about the backend and talks to the resolver instead.
-    private WordListOpenHelper mDB;
+    private AyamListOpenHelper mDB;
 
     private static final int URI_ALL_ITEMS_CODE = 10;
     private static final int URI_ONE_ITEM_CODE = 20;
@@ -61,7 +61,7 @@ public class WordListContentProvider  extends ContentProvider {
     @Override
     public boolean onCreate() {
         // Database interface object
-        mDB = new WordListOpenHelper(getContext());
+        mDB = new AyamListOpenHelper(getContext());
         initializeUriMatching();
         return true;
     }

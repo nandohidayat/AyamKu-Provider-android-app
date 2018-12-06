@@ -19,7 +19,7 @@ package com.nandohidayat.app.ayamkuprovider;
 import android.view.View;
 
 /**
- * Instantiated for the Edit and Delete buttons in WordListAdapter.
+ * Instantiated for the Edit and Delete buttons in AyamListAdapter.
  */
 public class MyButtonOnClickListener implements View.OnClickListener {
     private static final String TAG = View.OnClickListener.class.getSimpleName();
@@ -33,6 +33,6 @@ public class MyButtonOnClickListener implements View.OnClickListener {
     }
 
     public void onClick(View v) {
-        // Implemented in WordListAdapter
+        // Implemented in AyamListAdapter
     }
 }
