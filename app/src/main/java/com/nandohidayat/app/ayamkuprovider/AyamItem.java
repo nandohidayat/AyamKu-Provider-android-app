@@ -20,7 +20,7 @@ package com.nandohidayat.app.ayamkuprovider;
 /**
  * Data model for one word list item.
  */
-public class WordItem {
+public class AyamItem {
 
     private int mId;
     private String mImage;
@@ -28,7 +28,7 @@ public class WordItem {
     private String mDesc;
     private double mPrice;
 
-    public WordItem() {}
+    public AyamItem() {}
 
     public int getmId() {
         return mId;
