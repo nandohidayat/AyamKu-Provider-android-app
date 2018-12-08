@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License. -->
 
 <resources>
-    <string name="app_name">WordListSQLWithContentProvider</string>
+    <string name="app_name">AyamKu Provider</string>
     <string name="hint_word">New Word...</string>
     <string name="button_save">Save</string>
     <string name="button_edit">Edit</string>
