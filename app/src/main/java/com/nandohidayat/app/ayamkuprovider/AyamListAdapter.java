@@ -35,16 +35,16 @@ import static com.nandohidayat.app.ayamkuprovider.Contract.CONTENT_URI;
 /**
  * Simple Adapter for a RecyclerView with click handler for each item in the ViewHolder.
  */
-public class AyamListAdapter extends RecyclerView.Adapter<AyamListAdapter.WordViewHolder> {
+public class AyamListAdapter extends RecyclerView.Adapter<AyamListAdapter.AyamViewHolder> {
 
-    class WordViewHolder extends RecyclerView.ViewHolder {
-        public final TextView wordItemView;
+    class AyamViewHolder extends RecyclerView.ViewHolder {
+        public final TextView ayamItemView;
         Button delete_button;
         Button edit_button;
 
-        public WordViewHolder(View itemView) {
+        public AyamViewHolder(View itemView) {
             super(itemView);
-            wordItemView = (TextView) itemView.findViewById(com.nandohidayat.app.ayamkuprovider.R.id.word);
+            ayamItemView = (TextView) itemView.findViewById(com.nandohidayat.app.ayamkuprovider.R.id.ayam);
             delete_button = (Button)itemView.findViewById(R.id.delete_button);
             edit_button = (Button)itemView.findViewById(R.id.edit_button);
         }
@@ -72,16 +72,16 @@ public class AyamListAdapter extends RecyclerView.Adapter<AyamListAdapter.WordVi
     }
 
     @Override
-    public WordViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public AyamViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View mItemView = mInflater.inflate(R.layout.wordlist_item, parent, false);
-        return new WordViewHolder(mItemView);
+        return new AyamViewHolder(mItemView);
     }
 
     @Override
-    public void onBindViewHolder(WordViewHolder holder, int position) {
+    public void onBindViewHolder(AyamViewHolder holder, int position) {
         // Create a reference to the view holder for the click listener
         // Must be final for use in callback
-        final WordViewHolder h = holder;
+        final AyamViewHolder h = holder;
 
         String word = "";
         int id = -1;
@@ -95,11 +95,11 @@ public class AyamListAdapter extends RecyclerView.Adapter<AyamListAdapter.WordVi
             if (cursor.moveToPosition(position)) {
                 int indexWord = cursor.getColumnIndex(Contract.AyamList.KEY_NAME);
                 word = cursor.getString(indexWord);
-                holder.wordItemView.setText(word);
+                holder.ayamItemView.setText(word);
                 int indexId = cursor.getColumnIndex(Contract.AyamList.KEY_ID);
                 id = cursor.getInt(indexId);
             } else {
-                holder.wordItemView.setText(R.string.error_no_word);
+                holder.ayamItemView.setText(R.string.error_no_word);
             }
             cursor.close();
         } else {

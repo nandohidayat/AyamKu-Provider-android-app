@@ -20,7 +20,7 @@ limitations under the License. -->
     android:padding="6dp">
 
     <TextView
-        android:id="@+id/word"
+        android:id="@+id/ayam"
         android:layout_width="match_parent"
         style="@style/word_title" />
 

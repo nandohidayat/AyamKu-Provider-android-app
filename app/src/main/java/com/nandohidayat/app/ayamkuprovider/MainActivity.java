@@ -32,9 +32,9 @@ import static com.nandohidayat.app.ayamkuprovider.Contract.AyamList.KEY_NAME;
 
 /**
  * Implements a RecyclerView that displays a list of words from a SQL database.
- * - Clicking the fab button opens a second activity to add a word to the database.
- * - Clicking the Edit button opens an activity to edit the current word in the database.
- * - Clicking the Delete button deletes the current word from the database.
+ * - Clicking the fab button opens a second activity to add a ayam to the database.
+ * - Clicking the Edit button opens an activity to edit the current ayam in the database.
+ * - Clicking the Delete button deletes the current ayam from the database.
  */
 public class MainActivity extends AppCompatActivity {
 

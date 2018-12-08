@@ -24,7 +24,7 @@ import android.widget.EditText;
 
 
 /**
- * Activity for entering a new word or editing an existing one.
+ * Activity for entering a new ayam or editing an existing one.
  */
 public class EditAyamActivity extends AppCompatActivity {
 

@@ -20,7 +20,7 @@ import android.net.Uri;
 import android.provider.BaseColumns;
 
 /**
- * Contract class for the word list content provider.
+ * Contract class for the ayam list content provider.
  */
 public final class Contract {
 

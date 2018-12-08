@@ -29,6 +29,9 @@ import static com.nandohidayat.app.ayamkuprovider.Contract.ALL_ITEMS;
 import static com.nandohidayat.app.ayamkuprovider.Contract.DATABASE_NAME;
 import static com.nandohidayat.app.ayamkuprovider.Contract.AyamList.KEY_ID;
 import static com.nandohidayat.app.ayamkuprovider.Contract.AyamList.KEY_NAME;
+import static com.nandohidayat.app.ayamkuprovider.Contract.AyamList.KEY_PRICE;
+import static com.nandohidayat.app.ayamkuprovider.Contract.AyamList.KEY_DESC;
+import static com.nandohidayat.app.ayamkuprovider.Contract.AyamList.KEY_IMAGE;
 import static com.nandohidayat.app.ayamkuprovider.Contract.AyamList.AYAM_LIST_TABLE;
 
 /**
@@ -49,7 +52,10 @@ public class AyamListOpenHelper extends SQLiteOpenHelper {
     private static final String WORD_LIST_TABLE_CREATE =
             "CREATE TABLE " + AYAM_LIST_TABLE + " (" +
                     KEY_ID + " INTEGER PRIMARY KEY, " + // will auto-increment if no value passed
-                    KEY_NAME + " TEXT );";
+                    KEY_NAME + " TEXT, " +
+                    KEY_PRICE + " REAL, " +
+                    KEY_DESC + " TEXT, " +
+                    KEY_IMAGE + " TEXT );";
 
 
     public AyamListOpenHelper(Context context) {
@@ -132,7 +138,7 @@ public class AyamListOpenHelper extends SQLiteOpenHelper {
     }
 
     /**
-     * Gets the number of rows in the word list table.
+     * Gets the number of rows in the ayam list table.
      *
      * @return The number of entries in AYAM_LIST_TABLE.
      */
@@ -153,10 +159,10 @@ public class AyamListOpenHelper extends SQLiteOpenHelper {
     }
 
     /**
-     * Adds a single word row/entry to the database.
+     * Adds a single ayam row/entry to the database.
      *
      * @param  values Container for key/value columns/values.
-     * @return The id of the inserted word.
+     * @return The id of the inserted ayam.
      */
     public long insert(ContentValues values){
         long added = 0;
@@ -172,10 +178,10 @@ public class AyamListOpenHelper extends SQLiteOpenHelper {
     }
 
     /**
-     * Updates  word with the supplied id to the supplied value.
+     * Updates  ayam with the supplied id to the supplied value.
      *
-     * @param id Id of the word to update.
-     * @param word The new value of the word.
+     * @param id Id of the ayam to update.
+     * @param word The new value of the ayam.
      * @return the number of rows affected.
      */
     public int update(int id, String word) {

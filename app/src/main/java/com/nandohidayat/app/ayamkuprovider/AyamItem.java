@@ -18,7 +18,7 @@ package com.nandohidayat.app.ayamkuprovider;
 
 
 /**
- * Data model for one word list item.
+ * Data model for one ayam list item.
  */
 public class AyamItem {
 

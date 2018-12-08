@@ -75,7 +75,7 @@ public class AyamListContentProvider extends ContentProvider {
         // Matches a URI that is just the authority + the path, triggering the return of all words.
         sUriMatcher.addURI(AUTHORITY, CONTENT_PATH, URI_ALL_ITEMS_CODE);
 
-        // Matches a URI that references one word in the list by its index.
+        // Matches a URI that references one ayam in the list by its index.
         sUriMatcher.addURI(AUTHORITY, CONTENT_PATH + "/#", URI_ONE_ITEM_CODE);
 
         // Matches a URI that returns the number of rows in the table.
@@ -162,6 +162,6 @@ public class AyamListContentProvider extends ContentProvider {
      */
     @Override
     public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
-        return mDB.update(parseInt(selectionArgs[0]), values.getAsString("word"));
+        return mDB.update(parseInt(selectionArgs[0]), values.getAsString("ayam"));
     }
 }
