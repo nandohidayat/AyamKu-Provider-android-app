@@ -65,7 +65,7 @@ public class AyamListOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(WORD_LIST_TABLE_CREATE);
-        fillDatabaseWithData(db);
+//        fillDatabaseWithData(db);
     }
 
     /**
