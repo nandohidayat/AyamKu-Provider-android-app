@@ -43,7 +43,7 @@ public class EditAyamActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_word);
+        setContentView(R.layout.activity_edit_ayam);
 
         mEditWordView = (EditText) findViewById(R.id.edit_word);
 
