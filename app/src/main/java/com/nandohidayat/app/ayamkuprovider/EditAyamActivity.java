@@ -45,7 +45,7 @@ public class EditAyamActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_ayam);
 
-        mEditWordView = (EditText) findViewById(R.id.edit_word);
+        mEditWordView = (EditText) findViewById(R.id.edit_name);
 
         // Get data sent from calling activity.
         Bundle extras = getIntent().getExtras();
@@ -67,7 +67,7 @@ public class EditAyamActivity extends AppCompatActivity {
       * sets the intent result, and closes the activity.
       */
     public void returnReply(View view) {
-        String word = ((EditText) findViewById(R.id.edit_word)).getText().toString();
+        String word = ((EditText) findViewById(R.id.edit_name)).getText().toString();
 
         Intent replyIntent = new Intent();
         replyIntent.putExtra(EXTRA_REPLY, word);
