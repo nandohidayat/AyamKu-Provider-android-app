@@ -75,7 +75,7 @@ limitations under the License. -->
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
-            android:onClick="returnReply"
+            android:onClick="pickImage"
             android:text="Pick"
             android:textColor="@color/buttonLabel" />
 

@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == WORD_EDIT) {
             if (resultCode == RESULT_OK) {
-                String word = data.getStringExtra(EditAyamActivity.EXTRA_REPLY);
+                String word = data.getStringExtra(EditAyamActivity.EXTRA_NAME);
 
                 // Update the database.
                 if (word.length() != 0) {
