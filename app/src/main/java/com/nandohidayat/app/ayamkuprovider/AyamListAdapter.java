@@ -51,7 +51,10 @@ public class AyamListAdapter extends RecyclerView.Adapter<AyamListAdapter.AyamVi
     }
 
     public static final String EXTRA_ID = "ID";
-    public static final String EXTRA_WORD = "WORD";
+    public static final String EXTRA_WORD = "NAME";
+    public static final String EXTRA_PRICE = "PRICE";
+    public static final String EXTRA_DESC = "DESC";
+    public static final String EXTRA_IMAGE = "IMAGE";
     public static final String EXTRA_POSITION = "POSITION";
 
     private static final String TAG = AyamListAdapter.class.getSimpleName();
@@ -83,7 +86,10 @@ public class AyamListAdapter extends RecyclerView.Adapter<AyamListAdapter.AyamVi
         // Must be final for use in callback
         final AyamViewHolder h = holder;
 
-        String word = "";
+        String name = "";
+        double price = 0;
+        String desc = "";
+        String image = "";
         int id = -1;
 
         // Position != id !!!
@@ -94,8 +100,14 @@ public class AyamListAdapter extends RecyclerView.Adapter<AyamListAdapter.AyamVi
         if (cursor != null) {
             if (cursor.moveToPosition(position)) {
                 int indexWord = cursor.getColumnIndex(Contract.AyamList.KEY_NAME);
-                word = cursor.getString(indexWord);
-                holder.ayamItemView.setText(word);
+                int indexPrice = cursor.getColumnIndex(Contract.AyamList.KEY_PRICE);
+                int indexDesc = cursor.getColumnIndex(Contract.AyamList.KEY_DESC);
+                int indexImage = cursor.getColumnIndex(Contract.AyamList.KEY_IMAGE);
+                name = cursor.getString(indexWord);
+                price = cursor.getDouble(indexPrice);
+                desc = cursor.getString(indexDesc);
+                image = cursor.getString(indexImage);
+                holder.ayamItemView.setText(name);
                 int indexId = cursor.getColumnIndex(Contract.AyamList.KEY_ID);
                 id = cursor.getInt(indexId);
             } else {
@@ -107,7 +119,7 @@ public class AyamListAdapter extends RecyclerView.Adapter<AyamListAdapter.AyamVi
         }
 
         // Attach a click listener to the DELETE button
-        holder.delete_button.setOnClickListener(new MyButtonOnClickListener(id, word) {
+        holder.delete_button.setOnClickListener(new MyButtonOnClickListener(id, name, price, desc, image) {
 
             @Override
             public void onClick(View v) {
@@ -125,7 +137,7 @@ public class AyamListAdapter extends RecyclerView.Adapter<AyamListAdapter.AyamVi
         });
 
         // Attach a click listener to the EDIT button
-        holder.edit_button.setOnClickListener(new MyButtonOnClickListener(id, word) {
+        holder.edit_button.setOnClickListener(new MyButtonOnClickListener(id, name, price, desc, image) {
 
             @Override
             public void onClick(View v) {
@@ -133,7 +145,10 @@ public class AyamListAdapter extends RecyclerView.Adapter<AyamListAdapter.AyamVi
 
                 intent.putExtra(EXTRA_ID, id);
                 intent.putExtra(EXTRA_POSITION, h.getAdapterPosition());
-                intent.putExtra(EXTRA_WORD, word);
+                intent.putExtra(EXTRA_WORD, name);
+                intent.putExtra(EXTRA_PRICE, price);
+                intent.putExtra(EXTRA_DESC, desc);
+                intent.putExtra(EXTRA_IMAGE, image);
 
                 ((Activity) mContext).startActivityForResult(intent, MainActivity.WORD_EDIT);
             }

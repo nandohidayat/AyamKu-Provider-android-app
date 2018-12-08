@@ -25,11 +25,17 @@ public class MyButtonOnClickListener implements View.OnClickListener {
     private static final String TAG = View.OnClickListener.class.getSimpleName();
 
     int id;
-    String word;
+    String name;
+    double price;
+    String desc;
+    String image;
 
-    public MyButtonOnClickListener(int id, String word) {
+    public MyButtonOnClickListener(int id, String name, double price, String desc, String image) {
         this.id = id;
-        this.word = word;
+        this.name = name;
+        this.price = price;
+        this.desc = desc;
+        this.image = image;
     }
 
     public void onClick(View v) {

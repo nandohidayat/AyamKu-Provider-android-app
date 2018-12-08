@@ -21,13 +21,11 @@ import android.content.ContextWrapper;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.esafirm.imagepicker.features.ImagePicker;
 import com.esafirm.imagepicker.model.Image;
@@ -46,7 +44,10 @@ public class EditAyamActivity extends AppCompatActivity {
     private static final int NO_ID = -99;
     private static final String NO_WORD = "";
 
-    private EditText mEditAyamView;
+    private EditText mEditNameView;
+    private EditText mEditPriceView;
+    private EditText mEditDescView;
+    private EditText mEditImageView;
 
     // Unique tag for the intent reply.
     public static final String EXTRA_NAME = "com.app.android.ayamkuprovider.NAME";
@@ -63,7 +64,10 @@ public class EditAyamActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_ayam);
 
-        mEditAyamView = (EditText) findViewById(R.id.edit_name);
+        mEditNameView = (EditText) findViewById(R.id.edit_name);
+        mEditPriceView = (EditText) findViewById(R.id.edit_price);
+        mEditDescView = (EditText) findViewById(R.id.edit_desc);
+        mEditImageView = (EditText) findViewById(R.id.edit_image);
 
         // Get data sent from calling activity.
         Bundle extras = getIntent().getExtras();
@@ -71,10 +75,16 @@ public class EditAyamActivity extends AppCompatActivity {
         // If we are passed content, fill it in for the user to edit.
         if (extras != null) {
             int id = extras.getInt(AyamListAdapter.EXTRA_ID, NO_ID);
-            String word = extras.getString(AyamListAdapter.EXTRA_WORD, NO_WORD);
-            if (id != NO_ID && !word.equals(NO_WORD)) {
+            String name = extras.getString(AyamListAdapter.EXTRA_WORD, NO_WORD);
+            double price = extras.getDouble(AyamListAdapter.EXTRA_PRICE, 0.0);
+            String desc = extras.getString(AyamListAdapter.EXTRA_DESC, NO_WORD);
+            String image = extras.getString(AyamListAdapter.EXTRA_IMAGE, NO_WORD);
+            if (id != NO_ID && !name.equals(NO_WORD)) {
                 mId = id;
-                mEditAyamView.setText(word);
+                mEditNameView.setText(name);
+                mEditPriceView.setText(String.format("%.2f", price));
+                mEditDescView.setText(desc);
+                mEditImageView.setText(image);
             }
         } // Otherwise, start with empty fields.
     }

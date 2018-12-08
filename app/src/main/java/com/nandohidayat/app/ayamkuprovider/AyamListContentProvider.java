@@ -32,6 +32,12 @@ import static com.nandohidayat.app.ayamkuprovider.Contract.MULTIPLE_RECORDS_MIME
 import static com.nandohidayat.app.ayamkuprovider.Contract.SINGLE_RECORD_MIME_TYPE;
 import static java.lang.Integer.parseInt;
 
+
+import static com.nandohidayat.app.ayamkuprovider.Contract.AyamList.KEY_NAME;
+import static com.nandohidayat.app.ayamkuprovider.Contract.AyamList.KEY_PRICE;
+import static com.nandohidayat.app.ayamkuprovider.Contract.AyamList.KEY_DESC;
+import static com.nandohidayat.app.ayamkuprovider.Contract.AyamList.KEY_IMAGE;
+
 /**
  * You don't need a provider to use an SQLite database if the use is entirely
  * within your own application. It is necessary if you want to allow other apps to read and edit
@@ -162,6 +168,6 @@ public class AyamListContentProvider extends ContentProvider {
      */
     @Override
     public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
-        return mDB.update(parseInt(selectionArgs[0]), values.getAsString("ayam"));
+        return mDB.update(parseInt(selectionArgs[0]), values.getAsString(KEY_NAME), values.getAsDouble(KEY_PRICE), values.getAsString(KEY_DESC), values.getAsString(KEY_IMAGE));
     }
 }

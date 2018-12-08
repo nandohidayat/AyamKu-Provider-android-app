@@ -118,7 +118,7 @@ public class AyamListOpenHelper extends SQLiteOpenHelper {
         String query;
         if (position != ALL_ITEMS) {
             position++; // Because database starts counting at 1.
-            query = "SELECT " + KEY_ID + "," + KEY_NAME + " FROM " + AYAM_LIST_TABLE +
+            query = "SELECT " + KEY_ID + "," + KEY_NAME + "," + KEY_PRICE + "," + KEY_DESC + "," + KEY_IMAGE + " FROM " + AYAM_LIST_TABLE +
                     " WHERE " + KEY_ID + "=" + position + ";";
         } else {
             query = "SELECT  * FROM " + AYAM_LIST_TABLE + " ORDER BY " + KEY_NAME + " ASC ";
@@ -181,14 +181,17 @@ public class AyamListOpenHelper extends SQLiteOpenHelper {
      * Updates  ayam with the supplied id to the supplied value.
      *
      * @param id Id of the ayam to update.
-     * @param word The new value of the ayam.
+     * @param name The new value of the ayam.
      * @return the number of rows affected.
      */
-    public int update(int id, String word) {
+    public int update(int id, String name, double price, String desc, String image) {
         int updated = 0;
         try {
             ContentValues values = new ContentValues();
-            values.put(KEY_NAME, word);
+            values.put(KEY_NAME, name);
+            values.put(KEY_PRICE, price);
+            values.put(KEY_DESC, desc);
+            values.put(KEY_IMAGE, image);
             if (mWritableDB == null) {
                 mWritableDB = getWritableDatabase();
             }

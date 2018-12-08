@@ -29,6 +29,9 @@ import android.widget.Toast;
 import static com.nandohidayat.app.ayamkuprovider.Contract.CONTENT_URI;
 import static com.nandohidayat.app.ayamkuprovider.Contract.AyamList.KEY_ID;
 import static com.nandohidayat.app.ayamkuprovider.Contract.AyamList.KEY_NAME;
+import static com.nandohidayat.app.ayamkuprovider.Contract.AyamList.KEY_PRICE;
+import static com.nandohidayat.app.ayamkuprovider.Contract.AyamList.KEY_DESC;
+import static com.nandohidayat.app.ayamkuprovider.Contract.AyamList.KEY_IMAGE;
 
 /**
  * Implements a RecyclerView that displays a list of words from a SQL database.
@@ -76,11 +79,17 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == WORD_EDIT) {
             if (resultCode == RESULT_OK) {
                 String word = data.getStringExtra(EditAyamActivity.EXTRA_NAME);
+                double price = data.getDoubleExtra(EditAyamActivity.EXTRA_PRICE, 0.0);
+                String desc = data.getStringExtra(EditAyamActivity.EXTRA_DESC);
+                String image = data.getStringExtra(EditAyamActivity.EXTRA_IMAGE);
 
                 // Update the database.
                 if (word.length() != 0) {
                     ContentValues values = new ContentValues();
                     values.put(KEY_NAME, word);
+                    values.put(KEY_PRICE, price);
+                    values.put(KEY_DESC, desc);
+                    values.put(KEY_IMAGE, image);
                     int id = data.getIntExtra(AyamListAdapter.EXTRA_ID, -99);
 
                     if (id == WORD_ADD) {
