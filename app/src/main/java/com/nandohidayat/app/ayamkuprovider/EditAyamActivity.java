@@ -102,7 +102,7 @@ public class EditAyamActivity extends AppCompatActivity {
         String desc = ((EditText) findViewById(R.id.edit_desc)).getText().toString();
         String image = ((EditText) findViewById(R.id.edit_image)).getText().toString();
 
-//        image = saveToInternalStorage(BitmapFactory.decodeFile(image));
+        image = saveToInternalStorage(BitmapFactory.decodeFile(image));
 
         Intent replyIntent = new Intent();
         replyIntent.putExtra(EXTRA_NAME, name);
@@ -139,7 +139,8 @@ public class EditAyamActivity extends AppCompatActivity {
     private String saveToInternalStorage(Bitmap bitmapImage){
         ContextWrapper cw = new ContextWrapper(getApplicationContext());
         // path to /data/data/yourapp/app_data/imageDir
-        File directory = cw.getDir("assets", Context.MODE_WORLD_WRITEABLE);
+//        File directory = cw.getDir("assets", Context.MODE_WORLD_WRITEABLE);
+        File directory = cw.getExternalFilesDir("media");
         // Create imageDir
         int id;
         if (mId == MainActivity.WORD_ADD) {
