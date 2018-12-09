@@ -35,6 +35,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 
+import static com.nandohidayat.app.ayamkuprovider.AyamListOpenHelper.CURRENT_SIZE;
+
 
 /**
  * Activity for entering a new ayam or editing an existing one.
@@ -82,7 +84,7 @@ public class EditAyamActivity extends AppCompatActivity {
             if (id != NO_ID && !name.equals(NO_WORD)) {
                 mId = id;
                 mEditNameView.setText(name);
-                mEditPriceView.setText(String.format("%.2f", price));
+                mEditPriceView.setText(price + "");
                 mEditDescView.setText(desc);
                 mEditImageView.setText(image);
             }
@@ -139,13 +141,19 @@ public class EditAyamActivity extends AppCompatActivity {
         // path to /data/data/yourapp/app_data/imageDir
         File directory = cw.getDir("assets", Context.MODE_PRIVATE);
         // Create imageDir
-        File mypath = new File(directory,"profile.jpg");
+        int id;
+        if (mId == MainActivity.WORD_ADD) {
+            id = CURRENT_SIZE + 1;
+        } else {
+            id = mId;
+        }
+        File mypath = new File(directory, Integer.toString(id) + ".jpg");
 
         FileOutputStream fos = null;
         try {
             fos = new FileOutputStream(mypath);
             // Use the compress method on the BitMap object to write image to the OutputStream
-            bitmapImage.compress(Bitmap.CompressFormat.PNG, 100, fos);
+            bitmapImage.compress(Bitmap.CompressFormat.JPEG, 100, fos);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -155,7 +163,7 @@ public class EditAyamActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-        return directory.getAbsolutePath();
+        return mypath.getAbsolutePath();
     }
 }
 

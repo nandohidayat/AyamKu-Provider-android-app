@@ -40,6 +40,7 @@ import static com.nandohidayat.app.ayamkuprovider.Contract.AyamList.AYAM_LIST_TA
 public class AyamListOpenHelper extends SQLiteOpenHelper {
 
     private static final String TAG = AyamListOpenHelper.class.getSimpleName();
+    public static int CURRENT_SIZE = 0;
 
     // Has to be 1 first time or app will crash.
     private static final int DATABASE_VERSION = 1;
@@ -174,6 +175,7 @@ public class AyamListOpenHelper extends SQLiteOpenHelper {
         } catch (Exception e) {
             Log.d(TAG, "INSERT EXCEPTION " + e);
         }
+        CURRENT_SIZE = count().getCount();
         return added;
     }
 
